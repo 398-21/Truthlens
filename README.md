@@ -1,191 +1,116 @@
-# Backend Setup Instructions
+# 🧠 Objective News Aggregator — AI-Powered Web Crawling Pipeline
 
-Welcome to our project! To ensure a seamless experience running our backend code, please follow these setup instructions carefully. This guide will walk you through creating a new virtual environment, activating it, and installing the required dependencies.
+This project is a **custom-built AI-enhanced news aggregation pipeline** that crawls global **tech and business news**, detects **semantic similarities**, **translates** multi-language content, and synthesizes objective summaries using **GPT-based large language models**. It is designed for researchers, journalists, and data scientists seeking truth-focused, multi-source, multilingual news intelligence.
 
-## Prerequisites
+> 🛠️ Built with: Python 3.11.5 · Scrapy · GPT APIs · Custom NLP logic · Translation APIs  
+> 🔍 Purpose: Reduce bias and redundancy by combining and summarizing news articles from diverse sources in a unified, objective format
 
-Ensure you have Python 3.11.5 installed on your system. You can check your Python version by running `python --version` (or `python3 --version` on some systems) in your terminal or command prompt.
+---
 
-# **Running this project**
+## 🚀 Key Features
 
-# FIrst Step Creating a Virtual Environment
+- 🔎 **Multi-source crawling**: Custom spiders scrape tech and business news across sites
+- 🧠 **AI-powered similarity detection**: NLP techniques find overlapping stories from different publishers
+- 🌍 **Language translation**: Auto-translates non-English articles to English for unified analysis
+- 🧬 **GPT-based summarization**: Condenses multi-source input into **factual, objective summaries**
+- 🧹 **Custom pipeline**: Modular, extendable processing architecture for real-time news transformation
 
-First, you'll need to create a new virtual environment for this project. This will keep your dependencies isolated from your global Python installation.
+---
 
-### Windows
+## 🧠 Why It Matters to Machine Learning and AI
 
-1. Open Command Prompt.
-2. Navigate to the project directory.
-3. Run the following command to create a virtual environment:
+This project integrates multiple areas of machine learning, natural language processing (NLP), and applied AI:
 
-    ```cmd
-    python -m venv .venv
-    ```
+| **AI Component** | **Role in Pipeline** |
+|------------------|----------------------|
+| ✨ GPT Model | Converts combined, multi-source data into concise, neutral news summaries |
+| 🧩 NLP Similarity Engine | Matches articles on the same topic from different sites using vector embeddings |
+| 🌐 Translation Model/API | Ensures non-English content is processed in the same embedding space |
+| 🧠 Prompt Engineering | Guides GPT output toward objective, fact-based reporting |
+| 🔁 Custom Data Pipeline | Prepares news for future fine-tuning or supervised classification models |
 
-### macOS/Linux
+The project is a stepping stone toward building **bias detection models**, **stance detection**, or **source trustworthiness scoring systems** in future research.
 
-1. Open Terminal.
-2. Navigate to the project directory.
-3. Run the following command to create a virtual environment:
+---
 
-    ```bash
-    python3 -m venv .venv
-    ```
+## 📂 Project Structure
 
-## Activating the Virtual Environment
+```
+project-root/
+│
+├── Crawler/
+│   ├── run_all_spiders.py        # Master script to run all crawlers
+│   ├── market_data.json          # Output file with processed articles
+│   ├── .env.example              # Template for OpenAI key and API configs
+│   ├── items.py                  # Data schema for scraped articles
+│   ├── middlewares.py           # Request/response interceptors
+│   ├── pipelines.py             # Handles translation, similarity, GPT rewriting
+│   ├── settings.py              # Core crawler settings
+│   └── spiders/                 # Spider definitions for each site
+│       ├── AFSpider.py
+│       ├── ASTSpider.py
+│       └── ...
+│
+├── requirements.txt             # All Python dependencies
+└── README.md
+```
 
-After creating the virtual environment, you'll need to activate it.
+---
 
-### Windows
+## ⚙️ How It Works
 
-    ```cmd
-    .venv\Scripts\activate
-    ```
+1. **Scrapy Spiders**: Crawl news from predefined business and tech sources
+2. **Preprocessing**: Clean text and compute vector embeddings for similarity
+3. **Clustering/Matching**: Group similar articles across sources
+4. **Translation**: Convert non-English stories to English using APIs
+5. **GPT Summarization**: Condense and rewrite grouped articles into a neutral tone
+6. **Export**: Output structured JSON for database use, apps, or dashboards
 
-### macOS/Linux
+---
 
-    ```bash
-    source .venv/bin/activate
-    ```
+## 💾 Setup Instructions
 
-## Installing Dependencies
+Follow the instructions in [`Backend Setup Instructions`](#) to:
 
-With the virtual environment activated, install the project dependencies using the `requirements.txt` file:
+- Create and activate a virtual environment
+- Install dependencies
+- Set up your `.env` file with your OpenAI API key
+- Run the spiders to crawl and generate processed news content
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+---
 
-This command installs all the necessary Python packages defined in `requirements.txt`.
+## 🧠 Potential Use Cases
 
-# Step 2 Setting Up Environment Variables
+- 🗞️ **Bias-free news app** for multilingual tech/business readers
+- 🧑‍🔬 **Research dataset** for stance or truthfulness classification
+- 🧑‍⚖️ **Source trustworthiness analysis**
+- 📰 **Content moderation** and misinformation detection
+- 🤖 **Autonomous news agents** for summarizing the day’s events objectively
 
-To run the project successfully, you need to set up your environment variables. This includes adding your OpenAI API keys to a `.env` file that the application can read from.
+---
 
-## Creating a .env File
+## 📈 Future Enhancements
 
-Follow these steps to create your `.env` file based on the provided `.env.example`.
+- Fine-tuned GPT model for news-specific summarization  
+- Automatic stance/bias detection using supervised ML  
+- Topic modeling and clustering via unsupervised learning  
+- Telegram or WhatsApp bot integration for daily digest delivery  
+- Frontend dashboard for visualization and article curation  
 
-1. Locate the `.env.example` file in the `Crawler` directory.
+---
 
-2. Create a new file named `.env` in the same directory as `.env.example`.
+## 📜 License
 
-    ```bash
-    # For Windows
-    copy .env.example .env
+This project is released under the MIT License. See `LICENSE` for more information.
 
-    # For macOS and Linux
-    cp .env.example .env
-    ```
+---
 
-3. Open the newly created `.env` file in a text editor of your choice.
+## 👤 Author
 
-4. Replace the placeholder values with your actual OpenAI API keys. It should look something like this:
+**David Pan**  
+AI Developer & News Integrity Enthusiast
 
-    ```plaintext
-    OPENAI_API_KEY='your_actual_openai_api_key_here'
-    ```
 
-    Make sure to keep the single quotes around your API key.
+---
 
-5. Save the `.env` file and close the text editor.
-
-By following these steps, your application will have access to the necessary environment variables, Remember to replace with your own OpenAI API keys.
-
-# Step 3 Running the Spiders
-
-To start the crawling process, you need to execute the `run_all_spiders.py` script located in the `Crawler` directory. Ensure your virtual environment is activated before running the script.
-
-1. Activate your virtual environment if it is not yet activated:
-
-    ```bash
-    # For Windows
-    .venv\Scripts\activate
-
-    # For macOS and Linux
-    source .venv/bin/activate
-    ```
-
-2. Navigate to the `Crawler` directory:
-
-    ```bash
-    cd Crawler
-    ```
-
-3. Run the script:
-
-    ```bash
-    python run_all_spiders.py
-    ```
-
-This will initiate the crawling process using all the spider scripts defined in the `spiders` directory.
-
-Please note that you should have all necessary dependencies installed, and ensure that you have the proper permissions to execute the script on your system.
-
-## Troubleshooting
-
-If you encounter any issues during the setup, ensure:
-
-- You are using the correct version of Python (3.11.5).
-- You have navigated to the project's root directory before running commands.
-- You have write permissions in the project directory.
-
-For any other issues, refer to the Python virtual environment documentation or contact the project maintainers for support.
-
-
-## Quick Overview of Project Structure
-
-# Project Folder Structure Explanation
-
-The project is organized into a set of directories and files, each serving a specific role within the application. Below is an overview of the folder structure and the purpose of each item:
-
-## `Crawler`
-
-The `Crawler` folder is the main directory for the web crawling application.
-
-### `Crawler/Crawler`
-
-This subdirectory contains the main implementation of the crawler.
-
-#### `Crawler/Crawler/__pycache__`
-
-The `__pycache__` folder stores Python 3 bytecode compiled and optimized files, which are automatically generated by the Python interpreter to make execution faster.
-
-### `Crawler/spiders`
-
-This subdirectory contains the individual spider modules.
-
-#### `Crawler/spiders/__pycache__`
-
-Similar to the other `__pycache__` directory, this contains bytecode compiled files for the spider modules.
-
-#### `Crawler/spiders/__init__.py`
-
-The `__init__.py` file indicates that the `spiders` directory should be treated as a Python package. It can also be used to define package-level imports and variables.
-
-#### `Crawler/spiders/*.py`
-
-Files such as `AFSpider.py`, `ASTSpider.py`, etc., are Python modules that define individual spiders. Each spider is a class that defines how a certain site (or a group of sites) will be crawled and how the data extraction will be done.
-
-### `Crawler/market_data.json`
-
-This file is likely used to store the output data from the spiders in JSON format.
-
-### `Crawler/items.py`
-
-Defines the data structure for items that the spiders will collect.
-
-### `Crawler/middlewares.py`
-
-Contains middleware components that process requests and responses.
-
-### `Crawler/pipelines.py`
-
-Defines pipeline components to process items after being scraped by the spiders.
-
-### `Crawler/settings.py`
-
-Contains settings for the crawler, such as bots configuration, pipeline setup, and other options.
-
-
-
+> “In an era of noise, clarity is power — this system helps you find it.”
