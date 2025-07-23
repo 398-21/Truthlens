@@ -109,6 +109,8 @@ This project is released under the MIT License. See `LICENSE` for more informati
 
 **David Pan**  
 AI Developer & News Integrity Enthusiast
+BSc in AI and Machine Learning
+First Class Honours
 
 
 ---
